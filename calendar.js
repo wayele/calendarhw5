@@ -1,6 +1,6 @@
 var hrNine = $('#09AM');
 var saveBtnNine = $('#saveBtn-nine');
-var inpValueNine = $('#nine');
+var inpValue = $('nine');
 
 
 
@@ -36,30 +36,48 @@ $(document).ready(function () {
     $('.saveBtn').on("click", function () {
         const id = $(this).attr("id")
         const splitId = id.split("-")
-        const textareaId = "#" + splitId[1]
+        // const textareaId = "#" + splitId[1]
+        const textareaId = splitId[1]
         // console.log(textareaId);
-        const value = $(textareaId).val();
+        // const value = $(textareaId).val();
+        const value = document.getElementById(textareaId).value
         // If statement to check a value is entered 
+        console.log(textareaId)
         if (value) {
             localStorage.setItem(textareaId, value)
             // console.log(value);
             // console.log(textareaId);
         }
-        // console.log($('textarea'))
-
-        // Create an array of IDS that are storing items to local storage
-        var arr = ["#nine", "#ten", "#eleven", "#twelve", "#one", "#two", "#three", "#four", "#five"]
-        // Iterate through the array to display the user inputs to the textbox so it saves during refresh
-        for (let i = 0; i < arr.length; i++) {
-            const task = localStorage.getItem(arr[i]);
-            console.log(task);
-
-            const textAreaOutput = document.getElementById(arr[i]);
-            console.log(textAreaOutput);
-
-        }
     })
+    // localStorage.setItem('something', 'else')
+    console.log($('textarea'))
 
+    // Create an array of IDS that are storing items to local storage
+    // var arr = ["nine", "ten", "eleven", "twelve", "one", "two", "three", "four", "five"]
+    // var textAreaArr = $('textarea')
+    // for (var i = 0; i < textAreaArr.length; i++) {
+    //     console.log(textAreaArr[i].id)
+    //     var timeBlock = '#' + textAreaArr[i].id
+    //     var task = localStorage.getItem(timeBlock)
+    //     $(timeBlock).val(task)
+    // }
+    // Iterate through the array to display the user inputs to the textbox so it saves during refresh
+    for (let i = 0; i < localStorage.length; i++) {
+        console.log(localStorage)
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        console.log(key);
+        console.log(value);
+        // console.log($(key))
+        // alert(`${key}: ${value}`);
+        // $(key).val(value)
+        const textAreaOutput = document.getElementById(key);
+        console.log(textAreaOutput);
+        textAreaOutput.value = `${value}`;
 
+    }
 })
+
+
+
 // I cannot get the code to display what is being saved in local storage. Will need help understanding local storage and its functionality better.
