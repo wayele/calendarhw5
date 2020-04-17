@@ -10,7 +10,7 @@ This web application uses html, css, moment js, bootstrap grids, and dynamic jav
 A html file containing the basic skeleton was used along with custom css, moment js, and a separate javaScript file. Some boostrap components are used to style grids, buttons and other parts of the application.
 
 # Screenshot
-<img src="./assets/calendar_scrnshot">
+<img src="./assets/calendar_scrnshot.png">
 
 # Other details
 Project files: https://github.com/wayele/calendarhw5
